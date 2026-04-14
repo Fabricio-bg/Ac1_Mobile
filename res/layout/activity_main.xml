@@ -15,7 +15,7 @@
         android:layout_marginTop="35dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Titulo"
+        android:hint="Titulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +27,7 @@
         android:layout_marginTop="35dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Disciplina"
+        android:hint="Disciplina"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTitulo" />
 
@@ -39,7 +39,7 @@
         android:layout_marginTop="35dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Data Entrega"
+        android:hint="Data Entrega"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editDisciplina" />
 
@@ -49,19 +49,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/opcoes_prioridade"
         app:layout_constraintTop_toBottomOf="@+id/editDataEntrega" />
 
     <EditText
         android:id="@+id/editDescricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="280dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginBottom="320dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Descrição"
+        android:hint="Descrição"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerPrioridade"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPrioridade" />
 
     <CheckBox
         android:id="@+id/checkBoxConcluida"
@@ -77,17 +79,29 @@
         android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="250dp"
         android:text="Salvar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDescricao"
-        tools:layout_editor_absoluteX="160dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDescricao" />
 
     <ListView
         android:id="@+id/listViewTarefas"
         android:layout_width="409dp"
         android:layout_height="230dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="421dp" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:entries="@array/opcoes_prioridade"
+        app:layout_constraintBottom_toTopOf="@+id/listViewTarefas"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
