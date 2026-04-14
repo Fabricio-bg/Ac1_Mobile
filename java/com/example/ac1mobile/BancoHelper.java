@@ -1,5 +1,4 @@
-package com.example.ac1mobile;
-
+package com.fadev.ac1_mobile;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,7 +9,7 @@ public class BancoHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "tarefas.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "tarefas";
-    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITULO = "titulo";
     private static final String COLUMN_DISCIPLINA = "disciplina";
     private static final String COLUMN_DATA_ENTREGA = "data_entrega";
@@ -54,6 +53,12 @@ public class BancoHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
+
+    public Cursor buscarTarefaPorId(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+    }
+
     public int atualizarTarefa(int id, String titulo, String disciplina, String dataEntrega,
                                String prioridade, String descricao, String concluida ){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -69,5 +74,10 @@ public class BancoHelper extends SQLiteOpenHelper {
     public int excluirTarefa(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
+    }
+
+    public Cursor listarPorPrioridade(String prioridade) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_PRIORIDADE + " = ?", new String[]{prioridade});
     }
 }
