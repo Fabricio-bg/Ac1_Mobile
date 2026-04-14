@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Ac1Mobile</string>
+    <string name="app_name">Ac1_Mobile</string>
+    <string-array name="opcoes_prioridade">
+        <item>Baixa</item>
+        <item>Média</item>
+        <item>Alta</item>
+    </string-array>
 </resources>
